@@ -37,7 +37,7 @@ public class ProjectileFly : ProjectileBase
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                DealDamage_Master();
+                DealDamage_Master(other);
             }
 
             onHit?.Invoke(transform.position, -transform.forward, other.sharedMaterial);

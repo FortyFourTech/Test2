@@ -26,7 +26,7 @@ public class ProjectileHitscan : ProjectileBase
             {
                 if (PhotonNetwork.IsMasterClient)
                 {
-                    DealDamage_Master();
+                    DealDamage_Master(hit.collider);
                 }
                 // if (PhotonNetwork.LocalPlayer == _owner)
                 transform.position = hit.point;

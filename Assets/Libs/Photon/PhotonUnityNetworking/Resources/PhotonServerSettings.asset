@@ -33,6 +33,7 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - ApplyHealthChange_All
   - ClickRpc
   - DestroyRpc
   - DestroySpaceship

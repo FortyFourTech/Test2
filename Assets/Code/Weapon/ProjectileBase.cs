@@ -57,30 +57,13 @@ public abstract class ProjectileBase : MonoBehaviour
         _startPoint = transform.position;
     }
 
-    protected void DealDamage_Master()
+    protected void DealDamage_Master(Collider collider)
     {
-        // var playerC = hit.rigidbody?.GetComponent<GamePlayerController>();
+        var playerC = collider.GetComponentInParent<GamePlayerController>();
 
-        // if (playerC)
-        // {
-        //     var damageInfo = new SHealthChangeInfo(){
-        //         change = -_damage,
-        //         causer = _ownerPlayer,
-        //         damagePoint = hit.point,
-        //         source = _startPoint,
-        //         type = EHealthChangeType.bullet,
-        //         weaponIdx = (short)ownerGun.firearmIndex,
-        //     };
-
-        //     var killed = playerC.Health.ApplyChange_Server(damageInfo);
-
-        //     GameModePicker.CurrentGameMode.PlayerHit(_ownerPlayer, playerC.GetOwner(), _damage);
-        //     if (killed)
-        //     {
-        //         GameModePicker.CurrentGameMode.PlayerKill(_ownerPlayer, playerC.GetOwner());
-        //         _ownerPlayer.References().m_Controller.OnControllerKill_Server(damageInfo);
-        //         playerC.OnControllerDeath_Server(damageInfo);
-        //     }
-        // }
+        if (playerC)
+        {
+            var killed = playerC.Health.ApplyHealthChange_Master(-_damage);
+        }
     }
 }
