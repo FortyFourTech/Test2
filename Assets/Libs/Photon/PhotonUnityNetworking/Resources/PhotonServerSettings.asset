@@ -35,12 +35,14 @@ MonoBehaviour:
   RpcList:
   - ApplyHealthChange_All
   - ClickRpc
+  - ConsumePickup_All
   - DestroyRpc
   - DestroySpaceship
   - Fire
   - LoadFullMag_Owner
   - MakeEmptyShot_All
   - MakeShot_All
+  - PickupSpawned_Slave
   - RespawnSpaceship
   - SetWeaponSelected_All
   DisableAutoOpenWizard: 1
