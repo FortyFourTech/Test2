@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5896044030912375045}
   - component: {fileID: 5749197521477864794}
-  - component: {fileID: 2003472704692687282}
-  - component: {fileID: 6066708388428585974}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -46,42 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4875d04c4094b9468267157ba37d33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2003472704692687282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5157650115372316047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54615f989519c1141ba932fceb30d4ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectile: {fileID: 0}
-  exitAudio: []
-  impactEffects: []
-  defaultEffect:
-    hitMat: {fileID: 0}
-    impactAudio: []
---- !u!114 &6066708388428585974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5157650115372316047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262071ea66caea04993a85fe979c764f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectile: {fileID: 0}
-  exitParticle: {fileID: 0}
-  impactEffects: []
-  defaultEffect:
-    hitMat: {fileID: 0}
-    impactParticle: {fileID: 0}
+  maxDistance: 100
+  despawnDelay: 1
 --- !u!1 &6211570030547790339
 GameObject:
   m_ObjectHideFlags: 0
