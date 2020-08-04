@@ -34,7 +34,7 @@ public struct RoomParams
         RoomParams playerParams = new RoomParams();
 
         playerParams.maxRoundScore = PlayerPrefs.GetInt(RoomProperties.Keys.MaxRoundScore, defaultValues.maxRoundScore);
-        playerParams.playerHp = PlayerPrefs.GetFloat(RoomProperties.Keys.PlayerMaxHealth, defaultValues.playerHp);
+        playerParams.playerHp = PlayerPrefs.GetFloat(RoomProperties.Keys.MaxPlayerHealth, defaultValues.playerHp);
 
         return playerParams;
     }
@@ -42,7 +42,7 @@ public struct RoomParams
     public void SaveToDevice()
     {
         PlayerPrefs.SetInt(RoomProperties.Keys.MaxRoundScore, this.maxRoundScore);
-        PlayerPrefs.SetFloat(RoomProperties.Keys.PlayerMaxHealth, this.playerHp);
+        PlayerPrefs.SetFloat(RoomProperties.Keys.MaxPlayerHealth, this.playerHp);
 
         PlayerPrefs.Save();
     }
