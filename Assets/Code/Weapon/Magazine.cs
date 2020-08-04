@@ -27,7 +27,7 @@ public class Magazine : MonoBehaviour, IPunObservable
 
     public bool Full {
         get => _currentRounds >= _maxRounds;
-        set { if (value) LoadFull_Owner(); }
+        set { if (value) LoadFullMag_Owner(); }
     }
     public bool Empty {
         get => _currentRounds <= 0;
@@ -47,7 +47,14 @@ public class Magazine : MonoBehaviour, IPunObservable
         CurrentRounds += number;
     }
 
-    public void LoadFull_Owner()
+    public void LoadFullMag_Master()
+    {
+        var pv = PhotonView.Get(this);
+        pv.RPC("LoadFullMag_Owner", pv.Owner);
+    }
+
+    [PunRPC]
+    public void LoadFullMag_Owner()
     {
         if (Full)
             return;

@@ -38,6 +38,7 @@ MonoBehaviour:
   - DestroyRpc
   - DestroySpaceship
   - Fire
+  - LoadFullMag_Owner
   - MakeEmptyShot_All
   - MakeShot_All
   - RespawnSpaceship
