@@ -133,10 +133,10 @@ GameObject:
   - component: {fileID: 7997325629297445307}
   - component: {fileID: 8534992153327165588}
   - component: {fileID: 967138226949711045}
-  - component: {fileID: 8183763947218277849}
   - component: {fileID: 3134534293603990674}
-  - component: {fileID: 2093479470789009310}
   - component: {fileID: 5263350782171136238}
+  - component: {fileID: 8183763947218277849}
+  - component: {fileID: 2093479470789009310}
   - component: {fileID: 4539369070423163463}
   m_Layer: 0
   m_Name: Player
@@ -283,25 +283,6 @@ MonoBehaviour:
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
   m_PhotonView: {fileID: 8534992153327165588}
---- !u!114 &8183763947218277849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4104860619088226624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64515cb89891b364c9fd3f2e6628da45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _walkingSpeed: 7.5
-  _runMultiplier: 1.5
-  _jumpSpeed: 8
-  _gravity: 20
-  _playerCamera: {fileID: 1293825171846663673}
-  _lookSpeed: 2
-  _lookXLimit: 75
 --- !u!114 &3134534293603990674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +304,38 @@ MonoBehaviour:
     action: 2
   - target: {fileID: 1873554139672556344}
     action: 2
+--- !u!114 &5263350782171136238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104860619088226624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596b07d4fafd0ab4e91ad18c6f41de12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8183763947218277849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104860619088226624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64515cb89891b364c9fd3f2e6628da45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _walkingSpeed: 7.5
+  _runMultiplier: 1.5
+  _jumpSpeed: 8
+  _gravity: 20
+  _playerCamera: {fileID: 1293825171846663673}
+  _lookSpeed: 2
+  _lookXLimit: 75
+  teleported: 0
 --- !u!114 &2093479470789009310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,18 +354,6 @@ MonoBehaviour:
   - {fileID: 5672396519251672316}
   _useDefault: 0
   _defaultIdx: 0
---- !u!114 &5263350782171136238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4104860619088226624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596b07d4fafd0ab4e91ad18c6f41de12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4539369070423163463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +597,16 @@ PrefabInstance:
       propertyPath: _photonView
       value: 
       objectReference: {fileID: 8534992153327165588}
+    - target: {fileID: 6171578368132517954, guid: 76ae70a19153c3144b2148add30ddbf8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171578368132517954, guid: 76ae70a19153c3144b2148add30ddbf8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6222501001490437441, guid: 76ae70a19153c3144b2148add30ddbf8,
         type: 3}
       propertyPath: m_LocalPosition.x
