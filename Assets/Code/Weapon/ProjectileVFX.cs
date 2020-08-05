@@ -31,8 +31,11 @@ public class ProjectileVFX : ProjectileCallbacks
             matEffect = defaultEffect;
         }
 
-        var vfx = PrefabPooler.Instance.QueueObject(matEffect.impactParticle, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitNormal));
-        vfx.ReturnWithDelay(2f);
+        if (matEffect.impactParticle) // it can be just not filled
+        {
+            var vfx = PrefabPooler.Instance.QueueObject(matEffect.impactParticle, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitNormal));
+            vfx.ReturnWithDelay(2f);
+        }
     }
 
     [System.Serializable]
