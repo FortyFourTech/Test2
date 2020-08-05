@@ -39,16 +39,16 @@ MonoBehaviour:
   - DestroyRpc
   - DestroySpaceship
   - Fire
+  - Kill_Master
+  - LeaveRoom_All
   - LoadFullMag_Owner
   - MakeEmptyShot_All
   - MakeShot_All
   - PickupSpawned_Slave
-  - RespawnSpaceship
-  - SetWeaponSelected_All
-  - RespawnPlayer_Master
   - RespawnOnPoint_All
-  - Kill_Master
+  - RespawnSpaceship
   - Revive_Master
+  - SetWeaponSelected_All
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
