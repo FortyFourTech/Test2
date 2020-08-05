@@ -14,14 +14,15 @@ using Photon.Pun;
 public abstract class ProjectileBase : MonoBehaviour
 {
     public Action onFire;
-    // Position, Normal, Physics material
-    public Action<Vector3,Vector3,PhysicMaterial> onHit;
+    // Collider, Position, Normal, Physics material
+    public Action<Collider,Vector3,Vector3,PhysicMaterial> onHit;
 
     protected Poolable _poolComp;
-    protected Player _ownerPlayer;
-    protected Firearm _ownerGun;
-    protected float _damage;
     protected Vector3 _startPoint;
+
+    public Player OwnerPlayer {get; private set;}
+    public Firearm OwnerGun {get; private set;}
+    public float Damage {get; private set;}
 
     protected void OnEnable()
     {
@@ -51,19 +52,19 @@ public abstract class ProjectileBase : MonoBehaviour
     {
         onFire?.Invoke();
 
-        _ownerGun = ownerGun;
-        _ownerPlayer = owner;
-        _damage = damage;
+        OwnerGun = ownerGun;
+        OwnerPlayer = owner;
+        Damage = damage;
         _startPoint = transform.position;
     }
 
     protected void DealDamage_Master(Collider collider)
     {
-        var playerC = collider.GetComponentInParent<GamePlayerController>();
+        var playerC = collider.GetComponentInParent<PlayerPawn>();
 
         if (playerC)
         {
-            var killed = playerC.Health.ApplyHealthChange_Master(-_damage);
+            var killed = playerC.Health.ApplyHealthChange_Master(-Damage);
         }
     }
 }

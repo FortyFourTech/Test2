@@ -17,7 +17,7 @@ public class ProjectileVFX : ProjectileCallbacks
         }
     }
 
-    protected override void OnHit(Vector3 hitPoint, Vector3 hitNormal, PhysicMaterial hitMaterial)
+    protected override void OnHit(Collider hitCollider, Vector3 hitPoint, Vector3 hitNormal, PhysicMaterial hitMaterial)
     {
         var materialEffects = impactEffects.Where(eff => eff.hitMat == hitMaterial);
 

@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5896044030912375045}
   - component: {fileID: 7202875603146124296}
+  - component: {fileID: 9104277261293587214}
   - component: {fileID: 6616898786038104965}
   m_Layer: 0
   m_Name: Rocket
@@ -141,7 +142,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocity: 20
   despawnDelay: 1
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 6616898786038104965}
+--- !u!114 &9104277261293587214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157650115372316047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab8c530435abcd45b166cedb44d0e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectile: {fileID: 7202875603146124296}
+  _fullDamageRadius: 1
+  _falloffRadius: 2
 --- !u!54 &6616898786038104965
 Rigidbody:
   m_ObjectHideFlags: 0

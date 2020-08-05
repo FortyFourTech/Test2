@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class ProjectileCallbacks : MonoBehaviour
 {
     [Tooltip("Will be searched in parents, if not filled")]
-    [SerializeField] private ProjectileBase _projectile;
+    [SerializeField] protected ProjectileBase _projectile;
 
     protected virtual void Start()
     {
@@ -20,5 +20,5 @@ public abstract class ProjectileCallbacks : MonoBehaviour
     }
 
     protected virtual void OnFire() {}
-    protected virtual void OnHit(Vector3 hitPoint, Vector3 hitNormal, PhysicMaterial hitMaterial) {}
+    protected virtual void OnHit(Collider hitCollider, Vector3 hitPoint, Vector3 hitNormal, PhysicMaterial hitMaterial) {}
 }

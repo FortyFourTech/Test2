@@ -31,7 +31,7 @@ public class ProjectileHitscan : ProjectileBase
                 // if (PhotonNetwork.LocalPlayer == _owner)
                 transform.position = hit.point;
 
-                onHit?.Invoke(hit.point, hit.normal, hit.collider.sharedMaterial);
+                onHit?.Invoke(hit.collider, hit.point, hit.normal, hit.collider.sharedMaterial);
             }
         }
         else
@@ -44,7 +44,7 @@ public class ProjectileHitscan : ProjectileBase
     {
         if (hit.distance.AlmostEquals(0f, float.Epsilon)) // means initial hit
             return false;
-        if (hit.rigidbody && hit.rigidbody.GetComponent<Firearm>() == _ownerGun)
+        if (hit.rigidbody && hit.rigidbody.GetComponent<Firearm>() == OwnerGun)
             return false;
         
         return true;

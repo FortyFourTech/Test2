@@ -40,7 +40,7 @@ public class ProjectileFly : ProjectileBase
                 DealDamage_Master(other);
             }
 
-            onHit?.Invoke(transform.position, -transform.forward, other.sharedMaterial);
+            onHit?.Invoke(other, transform.position, -transform.forward, other.sharedMaterial);
 
             _poolComp.ReturnToPool();
         }
@@ -51,8 +51,8 @@ public class ProjectileFly : ProjectileBase
         if ((transform.position - _startPoint).sqrMagnitude.AlmostEquals(0f, 0.5f)) // means initial hit
             return false;
 
-        var otherC = other.GetComponentInParent<GamePlayerController>();
-        var ownerC = _ownerPlayer.References().m_Controller;
+        var otherC = other.GetComponentInParent<PlayerPawn>();
+        var ownerC = OwnerPlayer.References().m_pawn;
         if (otherC && ownerC && otherC == ownerC)
             return false;
         

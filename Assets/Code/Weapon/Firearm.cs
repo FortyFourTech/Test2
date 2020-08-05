@@ -9,16 +9,10 @@ public class Firearm : MonoBehaviourPun
     
     [SerializeField] private int _id;
 
-    [Tooltip("Will be searched in parents, if not filled")]
     [SerializeField] private Magazine _magazine;
 
     public int ID => _id;
     public Magazine Magazine => _magazine;
-    
-    private void Start()
-    {
-        if (!_magazine) _magazine = GetComponentInChildren<Magazine>();
-    }
 
     private void Update()
     {
