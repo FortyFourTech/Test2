@@ -19,19 +19,6 @@ namespace VReally.Arena.Weapons
         {
             var bullet = PrefabPooler.Instance.QueueObject(_bulletPrefab, transform.position, transform.rotation);
             bullet.GetComponent<ProjectileBase>().Fire(_ownerView.Owner, _firearm, bulletDamage);
-            // if (PhotonNetwork.IsMasterClient)
-            // {
-            //     RaycastHit hit;
-            //     if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
-            //     {
-            //         var hitPlayer = hit.collider.GetComponentInParent<GamePlayerController>();
-            //         if (hitPlayer)
-            //         {
-            //             var playerHealth = hitPlayer.GetComponent<HealthSystem>();
-            //             playerHealth.ApplyChange_Server(new SHealthChangeInfo(-bulletDamage));
-            //         }
-            //     }
-            // }
         }
     }
 }

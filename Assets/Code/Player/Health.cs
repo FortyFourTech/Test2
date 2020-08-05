@@ -6,7 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-public class Health : MonoBehaviourPunCallbacks//, IPunObservable
+public class Health : MonoBehaviourPunCallbacks
 {
     public delegate void HealthChangeEvent(Health health, SHealthChangeInfo info);
     public HealthChangeEvent onChanged;
@@ -23,11 +23,6 @@ public class Health : MonoBehaviourPunCallbacks//, IPunObservable
     public bool IsAlive => _current > 0f;
     public bool IsDead => _current <= 0f;
 
-#region Private vars
-    private Player _owner;
-    private bool _isDamageable = true;
-#endregion
-
     private void Awake()
     {
         PhotonPeer.RegisterType(typeof(SHealthChangeInfo), (byte) 'D', SHealthChangeInfo.SerializeToPhoton, SHealthChangeInfo.DeserializeFromPhoton);
@@ -35,15 +30,7 @@ public class Health : MonoBehaviourPunCallbacks//, IPunObservable
 
     private void Start()
     {
-        _owner = photonView.Owner;
-
         _current = _max;
-
-        if (photonView.IsMine)
-        {
-            _owner?.MaxHealth(_max);
-            _owner?.CurHealth(_current);
-        }
     }
 
     private void Update()

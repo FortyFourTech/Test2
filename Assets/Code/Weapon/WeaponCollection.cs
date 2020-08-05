@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using System.Linq;
 using Photon.Pun;
 using UnityEngine;
@@ -73,5 +72,4 @@ public class WeaponCollection : MonoBehaviourPun
             onSelected?.Invoke();
         }
     }
-
 }

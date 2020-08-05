@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Dimar.Pools;
+﻿using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
 
@@ -35,11 +31,6 @@ public class ProjectileFly : ProjectileBase
     {
         if (HitPrecondition(other))
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                DealDamage_Master(other);
-            }
-
             onHit?.Invoke(other, transform.position, -transform.forward, other.sharedMaterial);
 
             _poolComp.ReturnToPool();

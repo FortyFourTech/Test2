@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Dimar.Pools;
+﻿using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
 
@@ -24,11 +20,6 @@ public class ProjectileHitscan : ProjectileBase
         {
             if (HitPrecondition(hit))
             {
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    DealDamage_Master(hit.collider);
-                }
-                // if (PhotonNetwork.LocalPlayer == _owner)
                 transform.position = hit.point;
 
                 onHit?.Invoke(hit.collider, hit.point, hit.normal, hit.collider.sharedMaterial);

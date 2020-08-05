@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Threading.Tasks;
@@ -75,6 +73,6 @@ public class GameMode : MonoBehaviourPunCallbacks
     [PunRPC]
     public void LeaveRoom_All()
     {
-        PhotonNetwork.LeaveRoom(); // load mune scene will be called from PlayerSpawner
+        PhotonNetwork.LeaveRoom(); // load menu scene will be called from PlayerSpawner
     }
 }

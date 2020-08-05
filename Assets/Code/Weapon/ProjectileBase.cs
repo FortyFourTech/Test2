@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Dimar.Pools;
 using Photon.Realtime;
-using Photon.Pun;
 
 /// <summary>
 /// Projectile спавнится независимо на каждом клиенте.
@@ -56,15 +53,5 @@ public abstract class ProjectileBase : MonoBehaviour
         OwnerPlayer = owner;
         Damage = damage;
         _startPoint = transform.position;
-    }
-
-    protected void DealDamage_Master(Collider collider)
-    {
-        var playerC = collider.GetComponentInParent<PlayerPawn>();
-
-        if (playerC)
-        {
-            var killed = playerC.Health.ApplyHealthChange_Master(-Damage);
-        }
     }
 }

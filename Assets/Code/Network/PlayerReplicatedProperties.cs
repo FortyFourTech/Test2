@@ -7,35 +7,13 @@ public static class PlayerProperties
 {
     public static class Keys
     {
-        public const string MaxHealth = "max_health";
-        public const string CurrentHealth = "cur_health";
         public const string Score = "score";
     }
 
     #region Public interface
     public static void ResetProperties(this Player player)
     {
-        player.MaxHealth(0);
-        player.CurHealth(0);
         player.Score(0);
-    }
-
-    public static float MaxHealth(this Player player)
-    {
-        return _GetProperty<float>(player, Keys.MaxHealth);
-    }
-    public static void MaxHealth(this Player player, float newVal)
-    {
-        _SetProperty(player, Keys.MaxHealth, newVal);
-    }
-
-    public static float CurHealth(this Player player)
-    {
-        return _GetProperty<float>(player, Keys.CurrentHealth);
-    }
-    public static void CurHealth(this Player player, float newVal)
-    {
-        _SetProperty(player, Keys.CurrentHealth, newVal);
     }
 
     public static int Score(this Player player)
@@ -114,8 +92,6 @@ public class PlayerReplicatedProperties : MonoBehaviourPunCallbacks
     private Player _playerWatched;
 
     // gameplay properties
-    [ReadOnly] public float _maxHealth = 0f;
-    [ReadOnly] public float _curHealth = 0f;
     [ReadOnly] public int _score = 0;
     #endregion
 
@@ -138,8 +114,6 @@ public class PlayerReplicatedProperties : MonoBehaviourPunCallbacks
     #region Private functions
     private void _UpdateProperties()
     {
-        _maxHealth = _playerWatched.MaxHealth();
-        _curHealth = _playerWatched.CurHealth();
         _score = _playerWatched.Score();
     }
     #endregion

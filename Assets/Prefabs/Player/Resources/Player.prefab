@@ -335,7 +335,6 @@ MonoBehaviour:
   _playerCamera: {fileID: 1293825171846663673}
   _lookSpeed: 2
   _lookXLimit: 75
-  teleported: 0
 --- !u!114 &2093479470789009310
 MonoBehaviour:
   m_ObjectHideFlags: 0
