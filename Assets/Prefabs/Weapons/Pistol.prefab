@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 1
-  _magazine: {fileID: 0}
+  _magazine: {fileID: 687920414539536289}
 --- !u!114 &687920414539536289
 MonoBehaviour:
   m_ObjectHideFlags: 0
