@@ -4,9 +4,10 @@ public class PickupAmmo : PickupCallbacks
 {
     [SerializeField] private int _weaponId;
 
-    protected override void OnConsume_Master(GamePlayerController byPlayer)
+    protected override void OnConsume_Master(PlayerPawn byPlayer)
     {
         // restore ammo
-        byPlayer.Weapons.GetWeapon(_weaponId).Magazine.LoadFullMag_Master();
+        var weapon = byPlayer.Weapons.GetWeapon(_weaponId);
+        weapon.Magazine.LoadFullMag_Master();
     }
 }

@@ -6,7 +6,7 @@ using Photon.Realtime;
 public class PickupBase : MonoBehaviourPun
 {
     // public Action onSpawned;
-    public Action<GamePlayerController> onConsumed;
+    public Action<PlayerPawn> onConsumed;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,7 +19,7 @@ public class PickupBase : MonoBehaviourPun
     
     private bool HitPrecondition(Collider other, ref Player hitPlayer)
     {
-        var otherC = other.GetComponent<GamePlayerController>();
+        var otherC = other.GetComponent<PlayerPawn>();
         if (otherC)
         {
             hitPlayer = otherC.Owner;
@@ -38,7 +38,7 @@ public class PickupBase : MonoBehaviourPun
     [PunRPC]
     private void ConsumePickup_All(Player byPlayer)
     {
-        onConsumed?.Invoke(byPlayer.References().m_Controller);
+        onConsumed?.Invoke(byPlayer.References().m_pawn);
 
         if (PhotonNetwork.IsMasterClient)
             PhotonNetwork.Destroy(gameObject);

@@ -14,10 +14,12 @@ public class WeaponCollection : MonoBehaviourPun
     [SerializeField] private Firearm[] _weapons;
 
     // Для дебага сделана возможность начать с выбранным оружием
-    [SerializeField] bool _useDefault;
-    [SerializeField] int _defaultIdx;
+    [SerializeField] private bool _useDefault;
+    [SerializeField] private int _defaultIdx;
 
     private Firearm _currentWeapon = null;
+
+    public Firearm[] AllWeapons => _weapons;
 
     private void Start()
     {

@@ -25,7 +25,7 @@ public class PickupSpawner : MonoBehaviourPun
         StartCoroutine(_SpawnDelayed(_spawnDelay));
     }
 
-    private void OnConsume(GamePlayerController byPlayer)
+    private void OnConsume(PlayerPawn byPlayer)
     {
         _Respawn();
     }

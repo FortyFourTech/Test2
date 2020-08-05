@@ -27,6 +27,6 @@ public abstract class PickupCallbacks : MonoBehaviour
         
     }
 
-    protected abstract void OnConsume_Master(GamePlayerController byPlayer);
-    protected virtual void OnConsume_Slave(GamePlayerController byPlayer) {}
+    protected abstract void OnConsume_Master(PlayerPawn byPlayer);
+    protected virtual void OnConsume_Slave(PlayerPawn byPlayer) {}
 }

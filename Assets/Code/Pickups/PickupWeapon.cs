@@ -4,10 +4,11 @@ public class PickupWeapon : PickupCallbacks
 {
     [SerializeField] private int _weaponId;
     
-    protected override void OnConsume_Master(GamePlayerController byPlayer)
+    protected override void OnConsume_Master(PlayerPawn byPlayer)
     {
         // switch to weapon and restore ammo
-        // byPlayer.Weapons.GetWeapon(_weaponId).Magazine.LoadFullMag_Master();
+        var weapon = byPlayer.Weapons.GetWeapon(_weaponId);
+        weapon.Magazine.LoadFullMag_Master();
         byPlayer.Weapons.SetWeaponSelected_Master(_weaponId);
     }
 }
