@@ -45,6 +45,8 @@ MonoBehaviour:
   - PickupSpawned_Slave
   - RespawnSpaceship
   - SetWeaponSelected_All
+  - RespawnPlayer_Master
+  - RespawnOnPoint_All
   - Kill_Master
   - Revive_Master
   DisableAutoOpenWizard: 1

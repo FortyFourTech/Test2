@@ -65,4 +65,12 @@ public class PlayerMovement : MonoBehaviourPun
         _playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * _lookSpeed, 0);
     }
+
+    public void Teleport(Vector3 position, Quaternion rotation)
+    {
+        characterController.enabled = false;
+        transform.position = position;
+        transform.rotation = rotation;
+        characterController.enabled = true;
+    }
 }

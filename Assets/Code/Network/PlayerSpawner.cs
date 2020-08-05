@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using Photon.Realtime;
 
-public class AvatarSpawner : MonoBehaviourPunCallbacks
+public class PlayerSpawner : MonoBehaviourPunCallbacks
 {
     [Tooltip("The prefab to use for representing the player")]
-    public GameObject playerPrefab;
+    [SerializeField] private GameObject _playerPrefab;
+    [SerializeField] private PlayerSpawnPoint[] _points;
 
 #region Photon Callbacks
     /// <summary>
@@ -26,19 +28,20 @@ public class AvatarSpawner : MonoBehaviourPunCallbacks
 
     private void _SpawnPlayer_Owner()
     {
-        if (playerPrefab == null)
+        if (_playerPrefab == null)
         {
             Debug.LogError("Missing playerPrefab reference...please set it up in GameObject 'Room Manager", this);
         }
         else
         {
-            if (PhotonNetwork.LocalPlayer.TagObject == null || PhotonNetwork.LocalPlayer.References().m_Controller == null)
+            if (PhotonNetwork.LocalPlayer.TagObject == null || PhotonNetwork.LocalPlayer.References().m_pawn == null)
             {
                 Debug.LogFormat("Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
                 // Spawn a character for the local player
                 // This gets synced by using PhotonNetwork.Instantiate
-                PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(_playerPrefab.name, new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
+                PhotonNetwork.SendAllOutgoingCommands();
             }
             else
             {
@@ -53,6 +56,12 @@ public class AvatarSpawner : MonoBehaviourPunCallbacks
     public static void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+    }
+    
+    public void RespawnPlayer_Master(Player player)
+    {
+        var pointChosen = _points.GetRandomElement();
+        pointChosen.Respawn_Master(player);
     }
 #endregion
 
