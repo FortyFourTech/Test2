@@ -2810,6 +2810,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: OnStartGameButtonClicked
       objectReference: {fileID: 0}
+    - target: {fileID: 2436386120030390606, guid: 1665b4d3b98ffe946bc083980e9352e1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 795093412831841835}
+    - target: {fileID: 2436386120030390606, guid: 1665b4d3b98ffe946bc083980e9352e1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnStartGameButtonClicked
+      objectReference: {fileID: 0}
     - target: {fileID: 2917302737205061906, guid: 1665b4d3b98ffe946bc083980e9352e1,
         type: 3}
       propertyPath: m_AnchorMin.y
