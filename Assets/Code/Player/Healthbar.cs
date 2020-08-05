@@ -36,7 +36,7 @@ public class Healthbar : MonoBehaviour
         
         _ownerHealth.onChanged += UpdateView;
 
-        UpdateView(0f);
+        UpdateView(_ownerHealth, new Health.SHealthChangeInfo());
 
         yield break;
     }
@@ -53,8 +53,10 @@ public class Healthbar : MonoBehaviour
     }
 #endregion
 
-    private void UpdateView(float change)
+    private void UpdateView(Health health, Health.SHealthChangeInfo info)
     {
+        if (health != _ownerHealth) return;
+        
         float curHealth = _ownerHealth.CurrentHealth;
         float maxHealth = _ownerHealth.MaxHealth;
 

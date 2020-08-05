@@ -45,6 +45,8 @@ MonoBehaviour:
   - PickupSpawned_Slave
   - RespawnSpaceship
   - SetWeaponSelected_All
+  - Kill_Master
+  - Revive_Master
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
