@@ -1,8 +1,11 @@
-﻿using Photon.Pun;
+﻿using System;
+using Photon.Pun;
 using Photon.Realtime;
 
-public class GamePlayerController : MonoBehaviourPun, IPunInstantiateMagicCallback
+public class PlayerPawn : MonoBehaviourPun, IPunInstantiateMagicCallback
 {
+    public static Action<PlayerPawn> onSpawned;
+
     private Player _owner;
     private Health _health;
     private WeaponCollection _weapons;
@@ -13,13 +16,15 @@ public class GamePlayerController : MonoBehaviourPun, IPunInstantiateMagicCallba
 
     private void Start()
     {
-        _health = GetComponent<Health>();
-        _weapons = GetComponent<WeaponCollection>();
+        onSpawned?.Invoke(this);
     }
 
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
         info.Sender.TagObject = new PlayerReferences(this);
         _owner = photonView.Owner;
+        _health = GetComponent<Health>();
+        _weapons = GetComponent<WeaponCollection>();
+
     }
 }

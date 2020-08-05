@@ -100,11 +100,11 @@ public static class PlayerProperties
 
 public struct PlayerReferences
 {
-    public GamePlayerController m_Controller;
+    public PlayerPawn m_pawn;
 
-    public PlayerReferences(GamePlayerController controller = null)
+    public PlayerReferences(PlayerPawn pawn = null)
     {
-        m_Controller = controller;
+        m_pawn = pawn;
     }
 }
 

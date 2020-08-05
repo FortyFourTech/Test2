@@ -26,9 +26,9 @@ public class Healthbar : MonoBehaviour
     private IEnumerator AwaitPlayerHealth()
     {
         for (
-            _ownerHealth = _owner.References().m_Controller?.Health;
+            _ownerHealth = _owner.References().m_pawn?.Health;
             _ownerHealth == null;
-            _ownerHealth = _owner.References().m_Controller?.Health
+            _ownerHealth = _owner.References().m_pawn?.Health
         )
         {
             yield return null;
